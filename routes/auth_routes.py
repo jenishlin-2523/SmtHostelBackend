@@ -14,6 +14,9 @@ ALLOWED_ROLES = ["student", "warden", "security"]  # Only these roles are allowe
 def register():
     try:
         data = request.get_json(force=True)
+        if not data:
+            return jsonify({"msg": "No data provided"}), 400
+            
         username = data.get("username", "").strip()
         email = data.get("email", "").strip().lower()
         password = data.get("password", "")

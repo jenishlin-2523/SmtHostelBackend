@@ -1,16 +1,14 @@
+import sys, os
+# Ensure backend folder is in Python path before other imports
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from flask import Flask
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 
-
-
 from config import JWT_SECRET_KEY, FRONTEND_URL
 from routes.auth_routes import auth_bp
 from routes.outpass_routes import outpass_bp
-import sys, os
-
-# Ensure backend folder is in Python path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 def create_app():
     app = Flask(__name__)
