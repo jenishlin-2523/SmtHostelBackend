@@ -46,6 +46,8 @@ def register():
         return jsonify({"msg": "User registered successfully"}), 201
 
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         return jsonify({"msg": "Error during registration", "error": str(e)}), 500
 
 
